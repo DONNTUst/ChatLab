@@ -1,3 +1,3 @@
-# Модуль генерации изображений
+# РњРѕРґСѓР»СЊ РіРµРЅРµСЂР°С†РёРё РёР·РѕР±СЂР°Р¶РµРЅРёР№
 def generate_image(description):
     print(f"Generating image based on: {description}")
