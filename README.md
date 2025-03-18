@@ -61,8 +61,8 @@
 > На данном этапе проект находится в стадии планирования и имитации. Код и инструкции по установке будут предоставлены в следующих этапах разработки.
 
 ## Ссылки
-- **Мой GitHub аккаунт:** [https://github.com/ТвойЛогин](https://github.com/ТвойЛогин)
-- **Репозиторий Chatlab:** [https://github.com/ТвойЛогин/Chatlab](https://github.com/ТвойЛогин/Chatlab)
+- **Мой GitHub аккаунт:** [https://github.com/DONNTUst](https://github.com/DONNTUst)
+- **Репозиторий Chatlab:** [https://github.com/DONNTUst/ChatLab](https://github.com/DONNTUst/ChatLab)
 
 ## Лицензия
 
@@ -72,4 +72,4 @@
 
 ## Контакты
 Для связи по вопросам проекта обращайтесь:  
-**Email:** your_email@example.com
+**Email:** email@example.com
