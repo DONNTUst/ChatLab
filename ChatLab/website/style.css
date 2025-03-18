@@ -1,0 +1,124 @@
+/* Общий сброс */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Общий стиль */
+body {
+    font-family: Arial, sans-serif;
+    background: #f0f0f0;
+}
+
+/* Шапка */
+header {
+    background-color: #005ebb;
+    color: #fff;
+    padding: 10px 20px;
+}
+
+    header h1 {
+        display: inline-block;
+        margin-right: 50px;
+    }
+
+    header nav ul {
+        list-style: none;
+        display: inline-block;
+        vertical-align: middle;
+    }
+
+    header nav li {
+        display: inline;
+        margin-right: 10px;
+    }
+
+    header nav a {
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+        header nav a:hover {
+            text-decoration: underline;
+        }
+
+/* Контейнер */
+.container {
+    max-width: 960px;
+    margin: 20px auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 4px;
+}
+
+/* Разделы */
+section {
+    margin-bottom: 30px;
+}
+
+    section h2 {
+        margin-bottom: 10px;
+        color: #333;
+    }
+
+    section p, section li {
+        line-height: 1.5;
+        margin-bottom: 8px;
+    }
+
+/* Модули (grid) */
+.modules-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 16px;
+    margin-top: 20px;
+}
+
+.module-card {
+    background: #fafafa;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 12px;
+    transition: 0.2s;
+}
+
+    .module-card:hover {
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    }
+
+    .module-card h3 {
+        margin-bottom: 6px;
+        color: #007acc;
+    }
+
+/* Usage section */
+#usage ol {
+    list-style: decimal;
+    margin-left: 20px;
+}
+
+#usage button {
+    background: #007acc;
+    color: #fff;
+    border: none;
+    padding: 8px 12px;
+    margin-top: 10px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+    #usage button:hover {
+        background: #005fa3;
+    }
+
+/* Подвал */
+footer {
+    background: #333;
+    color: #ccc;
+    text-align: center;
+    font-size: 14px;
+    padding: 10px 0;
+    margin-top: 20px;
+}
