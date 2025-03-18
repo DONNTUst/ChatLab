@@ -1,10 +1,10 @@
-// Пример простого JS кода
+// РџСЂРёРјРµСЂ РїСЂРѕСЃС‚РѕРіРѕ JS РєРѕРґР°
 
 document.addEventListener('DOMContentLoaded', () => {
     const demoBtn = document.getElementById('demoBtn');
     if (demoBtn) {
         demoBtn.addEventListener('click', () => {
-            alert('Демо-функция: Chatlab стартует!');
+            alert('Р”РµРјРѕ-С„СѓРЅРєС†РёСЏ: Chatlab СЃС‚Р°СЂС‚СѓРµС‚!');
         });
     }
 });
