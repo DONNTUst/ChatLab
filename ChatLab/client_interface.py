@@ -1,3 +1,4 @@
-# Модуль интерфейса чат-бота
+# РњРѕРґСѓР»СЊ РёРЅС‚РµСЂС„РµР№СЃР° С‡Р°С‚-Р±РѕС‚Р°
 def run_client():
-    print("Client Interface started...")
+    print("Client Interface started... (version B)")
+
