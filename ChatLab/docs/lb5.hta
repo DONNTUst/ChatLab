@@ -1,0 +1,448 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <HTA:APPLICATION
+        ID="ChatlabManual"
+        APPLICATIONNAME="ChatlabManual"
+        BORDER="thick"
+        CAPTION="yes"
+        SHOWINTASKBAR="yes"
+        SINGLEINSTANCE="yes"
+        SCROLL="yes"
+    />
+    <title>Chatlab — Руководство пользователя</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 20px;
+            line-height: 1.4em;
+        }
+        h1, h2, h3 {
+            margin: 0.8em 0 0.4em 0;
+        }
+        nav {
+            margin-bottom: 1em;
+            padding: 10px;
+            border: 1px solid #CCC;
+            background: #F7F7F7;
+        }
+        nav a {
+            display: inline-block;
+            margin-right: 15px;
+            text-decoration: none;
+            color: #0066CC;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        section {
+            margin-bottom: 2em;
+        }
+        .back-to-top {
+            margin-top: 10px;
+        }
+        .back-to-top a {
+            color: #333;
+            text-decoration: none;
+            font-size: 0.9em;
+        }
+        .code-block {
+            background: #EEE;
+            padding: 10px;
+            border-radius: 5px;
+            font-family: monospace;
+        }
+        .screenshot {
+            display: block;
+            margin: 10px 0;
+            max-width: 600px;
+            border: 1px solid #CCC;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Chatlab — Руководство пользователя</h1>
+<p>
+    Добро пожаловать в справочное руководство по проекту <strong>Chatlab</strong>. 
+    Здесь вы найдёте описание всех основных модулей, их назначение, 
+    а также примеры использования.
+</p>
+
+<nav>
+    <strong>Содержание:</strong>
+    <a href="#module1">1. Модуль интерфейсов чат-ботов</a>
+    <a href="#module2">2. Модуль интеграции ChatGPT</a>
+    <a href="#module3">3. Модуль генерации изображений</a>
+    <a href="#module4">4. Модуль управления контекстом</a>
+    <a href="#module5">5. Модуль авторизации и ролей</a>
+    <a href="#module6">6. Модуль мультиязычной поддержки</a>
+    <a href="#module7">7. Модуль аналитики и логирования</a>
+    <a href="#module8">8. Модуль интеграции с мессенджерами</a>
+    <a href="#module9">9. Модуль тестирования и отладки</a>
+    <a href="#module10">10. Модуль резервного копирования</a>
+</nav>
+
+<hr/>
+
+<!-- ================================================================== -->
+<section id="module1">
+<h2>1. Модуль интерфейсов чат-ботов</h2>
+<p>
+    <em>Назначение:</em> Этот модуль обеспечивает пользовательский 
+    интерфейс для взаимодействия с чат-ботом. Реализуется в двух вариантах:
+    <ul>
+        <li>Консольный интерфейс</li>
+        <li>Веб-интерфейс (HTML/JS)</li>
+    </ul>
+    Пользователь может отправлять сообщения, а бот — отвечать в режиме 
+    реального времени.
+</p>
+
+<p>
+    <strong>Пример псевдокода для инициализации интерфейса:</strong>
+</p>
+<div class="code-block">
+    // Псевдокод
+    interface = new ChatInterface();
+    interface.init({
+      type: "web",  // web или console
+      port: 8080
+    });
+</div>
+
+<img src="images/module1_example.png" 
+     alt="Пример веб-интерфейса Chatlab" 
+     class="screenshot"
+/>
+
+<div class="back-to-top">
+    <a href="#top">↑ Наверх</a>
+</div>
+</section>
+
+<!-- ================================================================== -->
+<section id="module2">
+<h2>2. Модуль интеграции с моделью ChatGPT</h2>
+<p>
+    <em>Назначение:</em> Модуль обеспечивает связь с API ChatGPT 
+    (или аналогичной языковой моделью). Он принимает текст запроса, 
+    формирует корректный формат запроса к API и обрабатывает ответ.
+</p>
+
+<p>
+    <strong>Пример структуры модуля:</strong>
+</p>
+<div class="code-block">
+    // Псевдокод
+    let chatGPT = {
+        apiKey: "YOUR_API_KEY_HERE",
+        sendMessage: function(userMessage) {
+            // Формируем JSON
+            let payload = {
+                prompt: userMessage,
+                max_tokens: 100
+            };
+            // Отправляем запрос к API ChatGPT
+            let response = http.post("https://api.openai.com/v1/completions", payload);
+            return response;
+        }
+    };
+</div>
+
+<p>
+    Важные параметры:
+    <ul>
+        <li>API ключ (хранить безопасно!)</li>
+        <li>Настройки токенов, температуры, пр.</li>
+        <li>Формат входящих и исходящих данных</li>
+    </ul>
+</p>
+
+<div class="back-to-top">
+    <a href="#top">↑ Наверх</a>
+</div>
+</section>
+
+<!-- ================================================================== -->
+<section id="module3">
+<h2>3. Модуль генерации изображений</h2>
+<p>
+    <em>Назначение:</em> Отвечает за интеграцию с сервисами генерации 
+    изображений (например, DALL-E или аналогами). Пользователь 
+    формирует текстовое описание, а модуль возвращает сгенерированное 
+    изображение.
+</p>
+
+<p><strong>Пример использования:</strong></p>
+<div class="code-block">
+    // Псевдокод
+    imageGen.request("кот в космическом скафандре")
+           .then(url => {
+               console.log("Сгенерированное изображение:", url);
+           });
+</div>
+
+<p>
+    Модуль может возвращать URL уже готового изображения или бинарные данные, 
+    в зависимости от настроек сервиса.
+</p>
+
+<img src="images/module3_dalle.png" 
+     alt="Пример сгенерированного изображения" 
+     class="screenshot"
+/>
+
+<div class="back-to-top">
+    <a href="#top">↑ Наверх</a>
+</div>
+</section>
+
+<!-- ================================================================== -->
+<section id="module4">
+<h2>4. Модуль управления контекстом диалога</h2>
+<p>
+    <em>Назначение:</em> Отвечает за сохранение и восстановление истории 
+    переписки. Это позволяет боту давать более связные ответы, учитывая 
+    предыдущие вопросы пользователя.
+</p>
+<p>
+    <strong>Ключевые моменты:</strong>
+    <ul>
+        <li>Хранение истории диалога в массиве или базе данных</li>
+        <li>Оптимизация длины истории (старые сообщения могут обрезаться)</li>
+        <li>Возможность очистки контекста по запросу пользователя</li>
+    </ul>
+</p>
+
+<div class="code-block">
+// Псевдокод
+conversationHistory = [];
+
+function addToHistory(userMessage, botResponse) {
+   conversationHistory.push({
+      user: userMessage,
+      bot: botResponse
+   });
+   // Проверяем длину и чистим, если нужно
+   if (conversationHistory.length > 50) {
+       conversationHistory.shift();
+   }
+}
+</div>
+
+<div class="back-to-top">
+    <a href="#top">↑ Наверх</a>
+</div>
+</section>
+
+<!-- ================================================================== -->
+<section id="module5">
+<h2>5. Модуль авторизации и управления ролями</h2>
+<p>
+    <em>Назначение:</em> Реализует регистрацию и авторизацию пользователей. 
+    Поддерживает роли: <strong>гость</strong>, <strong>пользователь</strong>, 
+    <strong>администратор</strong>, определяя права доступа к функциям бота. 
+</p>
+
+<p>
+    <strong>Пример:</strong> 
+    <ul>
+        <li>Гость: может лишь отправлять простые запросы</li>
+        <li>Пользователь: доступ к генерации изображений и настройкам контекста</li>
+        <li>Администратор: просматривать логи, управлять API ключами и т.д.</li>
+    </ul>
+</p>
+
+<div class="code-block">
+// Псевдокод
+function login(username, password) {
+    let user = db.getUser(username);
+    if (user && user.password === hash(password)) {
+       session.role = user.role;
+       return true;
+    }
+    return false;
+}
+</div>
+
+<p>
+    Рекомендуется хранить пароли в виде хэш-сумм, использовать OAuth 
+    или JWT-токены для более продвинутых сценариев.
+</p>
+
+<div class="back-to-top">
+    <a href="#top">↑ Наверх</a>
+</div>
+</section>
+
+<!-- ================================================================== -->
+<section id="module6">
+<h2>6. Модуль мультиязычной поддержки</h2>
+<p>
+    <em>Назначение:</em> Определяет язык ввода пользователя (русский, 
+    английский и др.) и даёт ответ на том же языке либо по выбору пользователя. 
+    Поддерживает базовые настройки локализации.
+</p>
+<p>
+    Включает:
+    <ul>
+        <li>Автоматическое определение языка (например, по первым словам)</li>
+        <li>Настройки ответа на предпочитаемом языке</li>
+        <li>Возможность переключения языка во время диалога</li>
+    </ul>
+</p>
+
+<div class="code-block">
+// Псевдокод
+detectLanguage("Hello, how are you?")
+  => "en"
+selectOutputLanguage("ru")
+  => bot answers in Russian
+</div>
+
+<div class="back-to-top">
+    <a href="#top">↑ Наверх</a>
+</div>
+</section>
+
+<!-- ================================================================== -->
+<section id="module7">
+<h2>7. Модуль аналитики и логирования</h2>
+<p>
+    <em>Назначение:</em> Сбор и хранение статистики:
+    <ul>
+        <li>Общее количество запросов</li>
+        <li>Самые популярные темы</li>
+        <li>Ошибки и исключения</li>
+    </ul>
+    Администратор может просматривать эти данные, чтобы оценить 
+    производительность и находить узкие места.
+</p>
+
+<div class="code-block">
+// Псевдокод
+logEvent({
+   type: "request",
+   userId: currentUser,
+   message: userMessage,
+   timestamp: Date.now()
+});
+</div>
+
+<p>Можно использовать базу данных или простые журнальные файлы (log-files).</p>
+
+<div class="back-to-top">
+    <a href="#top">↑ Наверх</a>
+</div>
+</section>
+
+<!-- ================================================================== -->
+<section id="module8">
+<h2>8. Модуль интеграции с мессенджерами</h2>
+<p>
+    <em>Назначение:</em> Позволяет использовать чат-бота в <strong>Telegram</strong>, 
+    <strong>Discord</strong>, <strong>Slack</strong> и др. 
+    Модуль хранит ключи API, обрабатывает вебхуки или события из 
+    соответствующих платформ.
+</p>
+
+<p>
+    <strong>Пример:</strong> Настройка Telegram:
+</p>
+<div class="code-block">
+// Псевдокод
+telegramBot = new TelegramBot("TELEGRAM_BOT_TOKEN");
+telegramBot.on("message", (msg) => {
+   handleMessage(msg.text, msg.chat.id);
+});
+</div>
+
+<p>
+    Аналогично для Discord: используем Discord.js (Node.js) или другую библиотеку.
+</p>
+
+<div class="back-to-top">
+    <a href="#top">↑ Наверх</a>
+</div>
+</section>
+
+<!-- ================================================================== -->
+<section id="module9">
+<h2>9. Модуль тестирования и отладки</h2>
+<p>
+    <em>Назначение:</em> Содержит набор тестов (юнит-тестов, интеграционных), 
+    чтобы проверять все основные функции и стабильность работы бота, 
+    в том числе генерацию изображений.
+</p>
+
+<p>
+    <strong>Пример автоматического теста:</strong>
+</p>
+<div class="code-block">
+// Jest (JS) или аналог:
+// Проверка, что бот отвечает не пустой строкой
+test("Chat response not empty", () => {
+    const resp = chatGPT.sendMessage("Hello bot");
+    expect(resp.length).toBeGreaterThan(0);
+});
+</div>
+
+<p>
+    Также рекомендуется регулярная проверка интеграционных сценариев, 
+    например, "Вход пользователя → запрос → ответ бота → лог в базе".
+</p>
+
+<div class="back-to-top">
+    <a href="#top">↑ Наверх</a>
+</div>
+</section>
+
+<!-- ================================================================== -->
+<section id="module10">
+<h2>10. Модуль резервного копирования и восстановления</h2>
+<p>
+    <em>Назначение:</em> Регулярно сохраняет важные данные (логи, историю 
+    сообщений, настройки) и позволяет быстро восстановить систему после 
+    сбоев или ошибок.
+</p>
+<p>
+    <strong>Основные задачи:</strong>
+    <ul>
+        <li>Настройка расписания бэкапов (ежедневно, еженедельно)</li>
+        <li>Выбор места хранения (локально, облако)</li>
+        <li>Команда/скрипт восстановления при сбое</li>
+    </ul>
+</p>
+
+<div class="code-block">
+// Псевдокод
+backup.schedule("daily", {
+   target: "s3://chatlab-backups"
+});
+
+backup.restore("2025-03-10");
+</div>
+
+<div class="back-to-top">
+    <a href="#top">↑ Наверх</a>
+</div>
+</section>
+
+<hr/>
+
+<h3>Дополнительно</h3>
+<p>
+    - <strong>GitHub аккаунт:</strong> 
+      <a href="https://github.com/DONNTUst" target="_blank">DONNTUst</a><br/>
+    - <strong>Репозиторий Chatlab:</strong> 
+      <a href="https://github.com/DONNTUst/ChatLab" target="_blank">ChatLab на GitHub</a><br/>
+</p>
+
+<p>
+    <em>Версия документа: 1.0</em>
+</p>
+
+</body>
+</html>
